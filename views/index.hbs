@@ -1,0 +1,39 @@
+<h1>My Shopping Cart</h1>
+
+<form method="POST" action="/">
+    <div>
+        <label for="item">Item</label>
+        <input type="text" name="item" id="item" placeholder="Please type your item selection">
+    </div>
+    <div>
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" id="quantity" placeholder="Input item quantity">
+    </div>
+    <div>
+        <label for="unitPrice">Unit Price</label>
+        <input type="text" name="unitPrice" id="unitPrice" placeholder="Cost per unit in $">
+    </div>
+    <div>
+        <button type="submit">Add to Cart</button>
+    </div>
+    <input type="hidden" name="cartState" value="{{cartState}}">
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each cart}}
+            <tr>
+                <td>{{this.item}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.unitPrice}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
